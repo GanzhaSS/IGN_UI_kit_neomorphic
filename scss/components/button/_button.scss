@@ -1,0 +1,73 @@
+@import "../../helpers/mixins";
+
+
+button {
+    @include shared-styles;
+    box-shadow: var(--shadow-drop);
+    cursor: pointer;
+
+    &:active {
+        box-shadow: var(--shadow-inner);
+        border-color: var(--color-shadow-light_0);
+    }
+
+    &>* {
+        vertical-align: middle;
+    }
+
+    &>span:last-child {
+        padding-left: 8px;
+    }
+}
+
+// Square buttons
+.square-lg {
+    @include size(100%);
+    @include gridPlacement(row, 1, 3);
+    position: relative;
+    border-radius: 24px;
+    font-size: 64px;
+
+    &__gradient-text {
+        @include size(100%, 64px);
+        @include center;
+    }
+}
+
+.icon-btn {
+    @include size(var(--height));
+    border-radius: 14px;
+
+    &__icon {
+        @include size(24px);
+        fill: var(--color-text);
+    }
+}
+
+// Oval Buttons
+
+%oval-btn {
+    height: var(--height);
+    padding: 0 28px;
+    border-radius: 40px;
+}
+
+.oval-xlg {
+    @extend %oval-btn;
+    width: 100%;
+}
+
+.oval-lg {
+    @extend %oval-btn;
+    width: 210px;
+
+    &--with-icon {
+        @extend .oval-lg;
+        text-align: left;
+    }
+}
+
+.oval-sm {
+    @extend %oval-btn;
+    width: 140px;
+}
