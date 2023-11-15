@@ -6,6 +6,7 @@
 @import "./settings-light-mode.css";
 @import "./settings-light-mode.css";
 @import "./settings-light-mode.css";
+@import "./settings-light-mode.css";
 :root {
   --color-text: #757575;
   --color-bg: #ebecf0;
@@ -21,6 +22,7 @@
   --shadow-inner: inset -4px -4px 6px -1px var(--color-shadow-light_100),
       inset 2px 2px 8px -1px var(--color-shadow-dark_40);
   --height: 54px;
+  --height_sm: 40px;
   --fontFamily: Proxima Nova, monospace !important;
   --fontSize: 18px;
   --fontWeight: 700;
@@ -454,4 +456,43 @@ input::placeholder {
 }
 .toggle__switch:before:hover {
   border: 1px solid var(--color-accent-blue);
+}
+
+.checkbox_input {
+  display: none;
+}
+.checkbox_input:checked + .checkbox_btn {
+  box-shadow: var(--shadow-inner);
+  border-color: var(--color-shadow-light_0);
+}
+.checkbox_input:checked + .checkbox_btn:before {
+  background-image: url("data:image/svg+xml,%3Csvg width='16' height='11' viewBox='0 0 32 22' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19 3L8 14L3 9' stroke='%230B5589' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.checkbox_btn {
+  width: var(--height_sm);
+  height: var(--height_sm);
+  display: block;
+  position: relative;
+  border: 3px solid var(--color-shadow-light_0);
+  border-radius: 0.5em;
+  box-shadow: var(--shadow-drop);
+  background-color: var(--color-bg);
+  cursor: pointer;
+  transition: all 250ms ease-in-out;
+}
+.checkbox_btn:hover {
+  box-shadow: none;
+  border-color: var(--color-shadow-light_40);
+}
+.checkbox_btn:before {
+  content: "";
+  width: calc(var(--height_sm) / 2);
+  height: calc(var(--height_sm) / 2);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 200ms ease-in-out;
 }
